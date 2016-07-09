@@ -6,13 +6,18 @@ class PostsController < ApplicationController
 	end
 
 	def new
+		@post = Post.new
 	end
 
 	def create
 		@post = Post.new(posts_params)
-		@post.save
-
-		redirect_to @post
+		
+		#Si se guarda redirige al post, sino te vuelve al new con lo que tenias
+		if (@post.save)
+			redirect_to @post
+		else
+			render 'new'	
+		end
 	end
 
 	def show

@@ -37,6 +37,7 @@
 			<p>All Post</p>
 			
 			<div class="buttons">
+			<!-- Como se hacen los botones con sus rutas -->
 				<%= link_to new_post_path do %> 
 					<button class="button">New Post</button> 
 				<% end %>
@@ -44,6 +45,7 @@
 			</div>
 		</div>
 
+		<!-- Ejemplo de como se hacen los mensajes -->
 		<% flash.each do |name, msg| %>
 			<%= content_tag(:div, msg, class: "alert") %>
 		<% end %>
