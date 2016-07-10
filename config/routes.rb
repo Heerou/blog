@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
 #Defino la ruta y los recursos y colo la accion de controlador
-  resources :posts
+  resources :posts do
+    #Por cada post, hace referencia a los comentarios
+    resources :comments
+  end
+
   root "posts#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
