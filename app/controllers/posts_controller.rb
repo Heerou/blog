@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+#Antes de hacer algo autentifica el usuario
+	before_action :aunthenticate_user!, except: [:index, :show]
 #accion en el controlador
 	def index
 		@post = Post.all.order("created_at DESC")		

@@ -28,8 +28,9 @@
 			<li><a href="http://heerou.deviantart.com/">DeviantArt</a></li>	
 			<li><a href="mailto:jalvarezpimiento@gmail.com">Email</a></li>
 		</ul>
-
-		<p class="sign_in">Admin Login</p>
+		<% if !user_signed_in?  %>
+			<p class="sign_in">Admin Login</p>
+		<% end %>
 	</div>
 
 	<div id="main_content">
@@ -41,14 +42,16 @@
 			<% else %>
 				<%= link_to "Back to all Posts", root_path %>
 			<% end %>
-
-			<div class="buttons">
-			<!-- Como se hacen los botones con sus rutas -->
-				<%= link_to new_post_path do %> 
-					<button class="button">New Post</button> 
-				<% end %>
-				<button class="button">Log Out</button>
-			</div>
+			
+			<% if user_signed_in? %>
+				<div class="buttons">
+				<!-- Como se hacen los botones con sus rutas -->
+					<%= link_to new_post_path do %> 
+						<button class="button">New Post</button> 
+					<% end %>
+					<button class="button">Log Out</button>
+				</div>				
+			<% end %>
 		</div>
 
 		<!-- Ejemplo de como se hacen los mensajes -->

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
 #Defino la ruta y los recursos y colo la accion de controlador
   resources :posts do
     #Por cada post, hace referencia a los comentarios
